@@ -1,0 +1,89 @@
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box
+}
+
+.app {
+/*   display: -webkit-flex;
+  display: flex;
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap; */
+  height: 100%;
+}
+
+.app__sidebar {
+/*   -webkit-order: 1; */
+  float: left;
+  width: 33%;
+  border-right: 1px solid #aaa;
+  min-height: 100%;
+}
+
+.app__sidebar__admins {
+  margin-top: 15px;
+}
+
+.app__details {
+  float:right ;
+/*   -webkit-order: 2; */
+  width: 67%;
+  min-height: 100%;
+}
+
+.picture {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.topcoat-list.shows {
+  height: 100%
+}
+
+.topcoat-button {
+  padding: 0 0.5rem !important;
+  line-height: 2rem !important;
+}
+
+.topcoat-list__item:last-child {
+  border-bottom: none
+}
+
+.topcoat-list__item:active {
+    background-color: #404141;
+    -webkit-box-shadow: inset 0 1px rgba(0,0,0,0.18);
+    box-shadow: inset 0 1px rgba(0,0,0,0.18);
+   -webkit-tap-highlight-color: rgba(255,0,0, 1.0);
+}
+
+.topcoat-list {
+  border-bottom: none
+}
+
+.download {
+  float: right;
+}
+
+.episode__subtitles--ko {
+  text-decoration:line-through;
+}
+
+.episode__subtitles {
+  margin-right: 20px;
+}
+
+.finished {
+  color: #3D9970;
+}
+
+.add-show-input {
+  margin-top: 1em;
+  width: 100%;
+}
+
+.add-show-input input {
+  width: 80%;
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
