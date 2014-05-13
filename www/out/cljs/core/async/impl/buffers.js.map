@@ -12,7 +12,7 @@
   "cljs.core.async.impl.buffers/->RingBuffer",
   "cljs.core.async.impl.buffers/RingBuffer", "head", "tail", "length",
   "arr", "_", "x", "this", "new-arr-size", "new-arr", "js/Array",
-  "keep?", "n__4250__auto__", "v",
+  "keep?", "n__4251__auto__", "v",
   "cljs.core.async.impl.buffers/ring-buffer", "n", "js/Error",
   "cljs.core/pr-str", "cljs.core.async.impl.buffers/->FixedBuffer",
   "cljs.core.async.impl.buffers/FixedBuffer", "buf", "itm",

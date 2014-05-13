@@ -1,4 +1,4 @@
-// Compiled by ClojureScript 0.0-2138
+// Compiled by ClojureScript 0.0-2156
 goog.provide('cljs.core.async.impl.buffers');
 goog.require('cljs.core');
 goog.require('cljs.core.async.impl.protocols');
@@ -7,8 +7,8 @@ cljs.core.async.impl.buffers.acopy = (function acopy(src,src_start,dest,dest_sta
 if((cnt < len))
 {(dest[(dest_start + cnt)] = (src[(src_start + cnt)]));
 {
-var G__13392 = (cnt + 1);
-cnt = G__13392;
+var G__14786 = (cnt + 1);
+cnt = G__14786;
 continue;
 }
 } else
@@ -79,15 +79,15 @@ return self__.arr = new_arr;
 }
 });
 cljs.core.async.impl.buffers.RingBuffer.prototype.cleanup = (function (keep_QMARK_){var self__ = this;
-var this$ = this;var n__4250__auto__ = self__.length;var x = 0;while(true){
-if((x < n__4250__auto__))
-{var v_13393 = this$.pop();if(keep_QMARK_.call(null,v_13393))
-{this$.unshift(v_13393);
+var this$ = this;var n__4251__auto__ = self__.length;var x = 0;while(true){
+if((x < n__4251__auto__))
+{var v_14787 = this$.pop();if(keep_QMARK_.call(null,v_14787))
+{this$.unshift(v_14787);
 } else
 {}
 {
-var G__13394 = (x + 1);
-x = G__13394;
+var G__14788 = (x + 1);
+x = G__14788;
 continue;
 }
 } else

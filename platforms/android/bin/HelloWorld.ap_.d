@@ -241,6 +241,7 @@
 /home/sv/dev/projects/hello/platforms/android/assets/www/src/tivi/core.cljs \
 /home/sv/dev/projects/hello/platforms/android/assets/www/css/index.css \
 /home/sv/dev/projects/hello/platforms/android/assets/www/css/topcoat-mobile-dark.css \
+/home/sv/dev/projects/hello/platforms/android/assets/www/css/ionic.css \
 /home/sv/dev/projects/hello/platforms/android/assets/www/js/index.js \
 /home/sv/dev/projects/hello/platforms/android/assets/www/js/hammer.min.js \
 /home/sv/dev/projects/hello/platforms/android/assets/www/js/hello.js.map \

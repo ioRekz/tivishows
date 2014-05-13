@@ -10,4 +10,5 @@
     <content src="index.html" />
     <access origin=".*" />
     <plugin name="WebIntent" value="com.borismus.webintent.WebIntent" />
+    <plugin name="Device" value="org.apache.cordova.Device" />
 </widget>

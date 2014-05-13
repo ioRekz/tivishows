@@ -1,0 +1,49 @@
+(def te #{{:test "ab"} {:test "zab"} {:text "cde"}})
+te
+(sort-by :test te)
+(def te #{{:test 2} {:test 1} {:text 3}})
+(sort-by :test te)
+(def te #{{:test 2}, {:test 1}, {:text 3}})
+(sort-by :test te)
+(def tet #{{:test 2}, {:test 1}, {:text 3}})
+tet
+(count tet)
+(def tet #{{:test 2}, {:test 1}, {:test 3}})
+(sort-by :test te)
+(sort-by :tet te)
+(def tester #{{:test 2}, {:test 1}, {:test 3}})
+tester
+(def teststr #{{:test "ab"} {:test "zab"} {:test "cde"}})
+teststr
+(count teststr)
+(sort-by :test teststr)
+(def teststr2 #{{:test "ab"} {:test "zab"} {:test "cde"}})
+(if (= 2 3) (prn "wdw") (prn "awopkdwd"))
+exit
+(def ato (atom {:session "dd"}))
+ato
+@ato
+(swap! ato assoc :session "tutu")
+exits
+exit
+(when (not nil) 2)
+(when (not true) 2)
+(when (not false) 2)
+(when (not nil) 2)
+exit
+(def test (atom {:best "me"}))
+(def testz (atom {:best "me"}))
+(swap! testz update-in [:best] "toto")
+(swap! testz update-in [:best] set "toto")
+(swap! testz assoc-in [:best] "toto")
+exit
+(def testz (atom {:best "me"}))
+(get-in @testz [:best])
+(assoc {:test 2} :tutu 3)
+(assoc {:test 2} :test 3)
+(if (= 2 3) 3 4)
+(swap! testz (fn [at] (assoc at :bb 3)))
+(def testz (atom {:best {:tt 2}))
+(def testz (atom {:best }))
+(def testz (atom {:best {:test 2}}))
+(swap! testz assoc-in [:best :test] "toto")

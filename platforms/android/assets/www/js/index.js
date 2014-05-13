@@ -21,11 +21,12 @@
 var FS = undefined
 var errorFunc = function(e) { console.log(e) }
 
-window.playVideo = function(videoName) {
+window.playVideo = function(path) {
+  console.log("Trying to play "+path)
   window.plugins.webintent.startActivity(
     {
       action: window.plugins.webintent.ACTION_VIEW,
-      url: 'file:///sdcard/Movies/' + videoName,
+      url: 'smb://192.168.0.254/Disque dur/Videos/'+path,//'file:///sdcard/Movies/' + videoName,
       type: 'video/*'
     },
     function() {},
@@ -49,7 +50,7 @@ window.downloadSub = function(url, token, fileName, uploadId, addic7edurl) {
     fo.mimeType = "text/plain";
 
     entry.file(function(f) {
-      fileTransfer.upload(f.fullPath, encodeURI("http://mafreebox.freebox.fr/api/v1/upload/" + uploadId + "/send"), function(suc) {
+      fileTransfer.upload(f.fullPath, encodeURI("http://88.124.156.100/api/v1/upload/" + uploadId + "/send"), function(suc) {
         console.log("success", suc)
       }, errorFunc, fo, true);
     }, errorFunc);
@@ -78,11 +79,12 @@ window.downloadSub = function(url, token, fileName, uploadId, addic7edurl) {
 
 }
 
-window.downloadOnDevice = function(pathVideo, nameVideo, pathSrt, nameSrt, token) {
+window.downloadOnDevice = function(pathVideo, nameVideo, pathSrt, nameSrt, progress, token) {
   var fileTransfer = new FileTransfer();
+
   console.log("download on device "+nameVideo)
   fileTransfer.download(
-    "http://mafreebox.freebox.fr/api/v1/dl/" + pathVideo,
+    "http://88.124.156.100/api/v1/dl/" + pathVideo,
     "file:///sdcard/Movies/"+nameVideo,
     errorFunc,
     errorFunc,
@@ -92,8 +94,24 @@ window.downloadOnDevice = function(pathVideo, nameVideo, pathSrt, nameSrt, token
     }
   )
 
-  fileTransfer.download(
-    "http://mafreebox.freebox.fr/api/v1/dl/" + pathSrt,
+  console.log(fileTransfer)
+
+  console.log("onP")
+
+  console.log(progress)
+  fileTransfer.onprogress = function(progEvent) {
+    if(progEvent.lengthComputable) {
+      progress(progEvent.loaded / progEvent.total)
+    }
+  }
+
+  console.log("onp2")
+
+  var srtTransfer = new FileTransfer();
+
+
+  srtTransfer.download(
+    "http://88.124.156.100/api/v1/dl/" + pathSrt,
     "file:///sdcard/Movies/"+nameSrt,
     errorFunc,
     errorFunc,
