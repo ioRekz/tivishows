@@ -1,4 +1,4 @@
-cordova.define("org.apache.cordova.file.File", function(require, exports, module) {/*
+cordova.define("org.apache.cordova.file.File", function(require, exports, module) { /*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -75,4 +75,5 @@ File.prototype.slice = function(start, end) {
 
 
 module.exports = File;
+
 });

@@ -8,7 +8,7 @@
         Apache Cordova Team
     </author>
     <content src="index.html" />
-    <access origin=".*" />
+    <access origin="*" subdomains="true" />
     <plugin name="WebIntent" value="com.borismus.webintent.WebIntent" />
     <plugin name="Device" value="org.apache.cordova.Device" />
 </widget>

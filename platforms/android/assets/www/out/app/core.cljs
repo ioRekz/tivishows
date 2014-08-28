@@ -58,7 +58,7 @@
 (defn get-magnet-link [showw season episode]
   (go (let [s (format-number-zero season) e (format-number-zero episode)
             show (js/encodeURIComponent showw)
-            response (<! (http/get (str "http://thepiratebay.se/search/" show " s" s "e" episode "/0/7/0") {:with-credentials? false}))
+            response (<! (http/get (str "http://thepiratebay.se/search/" show " s" s "e" episode "/0/0/1") {:with-credentials? false :headers {"User-Agent" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36"}}))
             el (.find (js/$ (:body response)) ".detName:first-child + a")
             magnet (.attr el "href")
             name-el (.find (js/$ (:body response)) ".detName a")

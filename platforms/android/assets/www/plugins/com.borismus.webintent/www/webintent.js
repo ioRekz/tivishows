@@ -1,4 +1,4 @@
-cordova.define("com.borismus.webintent.WebIntent", function(require, exports, module) {/**
+cordova.define("com.borismus.webintent.WebIntent", function(require, exports, module) { /**
  * cordova Web Intent plugin
  * Copyright (c) Boris Smus 2010
  *
@@ -70,4 +70,5 @@ cordova.define("com.borismus.webintent.WebIntent", function(require, exports, mo
     window.plugins = window.plugins || {};
     window.plugins.webintent = window.webintent;
 })(window.PhoneGap || window.Cordova || window.cordova);
+
 });

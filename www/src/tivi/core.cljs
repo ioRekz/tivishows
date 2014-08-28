@@ -58,7 +58,7 @@
 (defn get-magnet-link [showw season episode]
   (go (let [s (format-number-zero season) e (format-number-zero episode)
             show (js/encodeURIComponent showw)
-            response (<! (http/get (str "http://thepiratebay.se/search/" show " s" s "e" episode "/0/7/0") {:with-credentials? false}))
+            response (<! (http/get (str "http://thepiratebay.se/search/" show " s" s "e" episode "/0/0/1") {:with-credentials? false :headers {"User-Agent" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.94 Safari/537.36"}}))
             el (.find (js/$ (:body response)) ".detName:first-child + a")
             magnet (.attr el "href")
             name-el (.find (js/$ (:body response)) ".detName a")
@@ -373,7 +373,7 @@
 ;;     (parse-episode-list (:show-id app) #(put! ch %))
 ;;     ch))0
 
-
+(prn @app-state)
 
 ;(swap! app-state update-in [:shows] (fn [shows] (map #(if (= (:name %) "Sherlock") (assoc % :name "toto") % ) shows)))
 
@@ -385,7 +385,6 @@
     (init-state [_] {:update-chan (chan)})
     om/IWillMount
     (will-mount [_]
-      (prn "will mount")
       (let [update-chan (om/get-state owner :update-chan) {:keys [season epnumrelative]} app st (om/get-state owner) show-name (:show-name st)]
         (when (and (:download-id app) (< (:percent app) 100))
           (get-download-percent (:download-id app) app (om/get-state owner :token) update-chan))
@@ -399,7 +398,7 @@
             (recur))))
         (go
            (when (and (not (:subs-link @app)) (not (in-future? (:air-date @app))))
-             (do (prn (str "subbbbs" show-name))(om/update! app [:subs-link] (<! (get-subtitle-link show-name season epnumrelative))))))
+             (om/update! app [:subs-link] (<! (get-subtitle-link show-name season epnumrelative)))))
         ))
         ;(on (js/Hammer. (om/get-node owner "cont"))) "doubletap" #(prn "double tap")))
     om/IRenderState
