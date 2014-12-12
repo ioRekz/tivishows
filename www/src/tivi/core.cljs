@@ -58,11 +58,16 @@
 (defn get-magnet-link [showw season episode]
   (go (let [s (format-number-zero season) e (format-number-zero episode)
             show (js/encodeURIComponent showw)
-            response (<! (http/get (str "http://thepiratebay.se/search/" show " s" s "e" episode "/0/7/0") {:with-credentials? false}))
-            el (.find (js/$ (:body response)) ".detName:first-child + a")
+            response (<! (http/get (str "https://kickass.so/usearch/" show " s" s "e" episode) {:with-credentials? false}))
+            el (.first (.find (js/$ (:body response)) ".imagnet"))
             magnet (.attr el "href")
-            name-el (.find (js/$ (:body response)) ".detName a")
+            name-el (.find (js/$ (:body response)) ".cellMainLink")
             file-name (.text (.first name-el))]
+        (prn "loLO")
+        (prn (:body response))
+        (.log js/console el)
+        (prn magnet)
+        (prn file-name)
         {:magnet magnet :file-name file-name})))
 
 (defn get-subtitle-link [show season episode]
